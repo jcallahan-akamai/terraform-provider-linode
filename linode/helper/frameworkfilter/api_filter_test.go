@@ -65,25 +65,14 @@ func TestConstructFilterString(t *testing.T) {
 				},
 			},
 			{
-				"+or": []map[string]any{
-					{
-						"api_bar": "test",
-					},
-				},
+				"api_bar": "test",
 			},
 			{
-				"+or": []map[string]any{
-					{
-						"api_foo_int": 123,
-					},
-				},
+				"api_foo_int": 123,
 			},
 			{
-				"+or": []map[string]any{
-					{
-						"api_foo_bool": true,
-					},
-				},
+
+				"api_foo_bool": true,
 			},
 		},
 		"+order":    "api_foo",

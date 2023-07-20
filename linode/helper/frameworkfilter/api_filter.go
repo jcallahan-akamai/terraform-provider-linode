@@ -43,9 +43,15 @@ func (f Config) constructFilterString(
 		}
 
 		// Append to the root filter
-		rootFilter = append(rootFilter, map[string]any{
-			"+or": currentFilter,
-		})
+		if len(filter.Values) > 1 {
+			// If there are multiple conditions, they go in an "or" clause
+			rootFilter = append(rootFilter, map[string]any{
+				"+or": currentFilter,
+			})
+		} else {
+			rootFilter = append(rootFilter, currentFilter...)
+		}
+
 	}
 
 	resultFilter := map[string]any{
